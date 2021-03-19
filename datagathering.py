@@ -1,21 +1,23 @@
+#!/usr/bin/env python3
 import pandas as pd
+import sys
 
-df = pd.read_csv("ind_col.csv", header=0)
+df = pd.read_csv(sys.argv[1], header=0)
 
 totalcount = len(df.index)
 mcount = df.query('Sex == "M"')['Reason'].count()
 fcount = df.query('Sex == "F"')['Reason'].count()
-noncancercount = len(df.query('Result == 1.0').index)
-precancercount = len(df.query('Result == 2.0 | Result == 3.0 | Result == 4.0').index)
-cancercount = len(df.query('Result == 5.0 | Result == 6.0').index)
+noncancercount = len(df.query('Cat == 1.0').index)
+precancercount = len(df.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0').index)
+cancercount = len(df.query('Cat == 5.0 | Cat == 6.0').index)
 
 ############################################################
 # Reason for getting screened, by gender
 ############################################################
 
 screeningdf = df.query('Reason == "screening"')
-FHdf = df.query('Reason == "FH"')
-poldf = df.query('Reason == "hx pol"')
+FHdf = df.query('Reason == "FHx"')
+poldf = df.query('Reason == "Hx Pol"')
 
 print('\033[1m' + "Reason for getting screened, by gender" + '\033[0m\n')
 screeningcount = len(screeningdf.index)
@@ -49,14 +51,14 @@ print("Hx pol counts and percentages:\n\tM: %d, %4.2f\n\tF: %d, %4.2f\n\tTotal: 
 
 
 ############################################################
-# Result of Screening, by Reason for getting screened
+# Cat of Screening, by Reason for getting screened
 ############################################################
 
-print('\033[1m' + "Result of screening, by Reason for getting screened" + '\033[0m\n')
+print('\033[1m' + "Cat of screening, by Reason for getting screened" + '\033[0m\n')
 
-noncancerscreeningcount = len(screeningdf.query('Result == 1.0'))
-precancerscreeningcount = len(screeningdf.query('Result == 2.0 | Result == 3.0 | Result == 4.0'))
-cancerscreeningcount = len(screeningdf.query('Result == 5.0 | Result == 6.0'))
+noncancerscreeningcount = len(screeningdf.query('Cat == 1.0'))
+precancerscreeningcount = len(screeningdf.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0'))
+cancerscreeningcount = len(screeningdf.query('Cat == 5.0 | Cat == 6.0'))
 
 print("Screening counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, %4.2f \n\tCancerous: %d, %4.2f \n\tPrecancer and Cancerous: %d, %4.2f \n" % (noncancerscreeningcount, 
     noncancerscreeningcount/screeningcount, 
@@ -68,9 +70,9 @@ print("Screening counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerou
     (precancerscreeningcount+cancerscreeningcount)/screeningcount))
 
 
-noncancerFHcount = len(FHdf.query('Result == 1.0'))
-precancerFHcount = len(FHdf.query('Result == 2.0 | Result == 3.0 | Result == 4.0'))
-cancerFHcount = len(FHdf.query('Result == 5.0 | Result == 6.0'))
+noncancerFHcount = len(FHdf.query('Cat == 1.0'))
+precancerFHcount = len(FHdf.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0'))
+cancerFHcount = len(FHdf.query('Cat == 5.0 | Cat == 6.0'))
 
 print("FH counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, %4.2f \n\tCancerous: %d, %4.2f \n\tPrecancer and Cancerous: %d, %4.2f \n" % (noncancerFHcount, 
     noncancerFHcount/FHcount, 
@@ -82,9 +84,9 @@ print("FH counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, 
     (precancerFHcount+cancerFHcount)/FHcount))
 
 
-noncancerpolcount = len(poldf.query('Result == 1.0'))
-precancerpolcount = len(poldf.query('Result == 2.0 | Result == 3.0 | Result == 4.0'))
-cancerpolcount = len(poldf.query('Result == 5.0 | Result == 6.0'))
+noncancerpolcount = len(poldf.query('Cat == 1.0'))
+precancerpolcount = len(poldf.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0'))
+cancerpolcount = len(poldf.query('Cat == 5.0 | Cat == 6.0'))
 
 print("Hx pol counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, %4.2f \n\tCancerous: %d, %4.2f \n\tPrecancer and Cancerous: %d, %4.2f \n" % (noncancerpolcount, 
     noncancerpolcount/polcount, 
@@ -97,17 +99,17 @@ print("Hx pol counts and percents:\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: 
 
 
 ############################################################
-# Result of Screening, by Gender 
+# Cat of Screening, by Gender 
 ############################################################
 
-print('\033[1m' + "Result of screening, by gender" + '\033[0m\n')
+print('\033[1m' + "Cat of screening, by gender" + '\033[0m\n')
 
 mgenderdf = df.query('Sex == "M"')
 fgenderdf = df.query('Sex == "F"')
 
-malenoncancercount = len(mgenderdf.query('Result == 1.0 | Result == 7.0 | Result == 8.0'))
-maleprecancercount = len(mgenderdf.query('Result == 2.0 | Result == 3.0 | Result == 4.0'))
-malecancercount = len(mgenderdf.query('Result == 5.0 | Result == 6.0'))
+malenoncancercount = len(mgenderdf.query('Cat == 1.0 | Cat == 7.0 | Cat == 8.0'))
+maleprecancercount = len(mgenderdf.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0'))
+malecancercount = len(mgenderdf.query('Cat == 5.0 | Cat == 6.0'))
 
 print("\033[1m" + "Male: " + "\033[0m" + "counts and percents\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, %4.2f \n\tCancerous: %d, %4.2f \n\tPrecancer and Cancerous: %d, %4.2f \n" % 
     (malenoncancercount, malenoncancercount/mcount, #noncancer
@@ -117,9 +119,9 @@ print("\033[1m" + "Male: " + "\033[0m" + "counts and percents\n\tNoncancerous: %
     (maleprecancercount+malecancercount)/mcount))
 
 
-femalenoncancercount = len(fgenderdf.query('Result == 1.0 | Result == 7.0 | Result == 8.0'))
-femaleprecancercount = len(fgenderdf.query('Result == 2.0 | Result == 3.0 | Result == 4.0'))
-femalecancercount = len(fgenderdf.query('Result == 5.0 | Result == 6.0'))
+femalenoncancercount = len(fgenderdf.query('Cat == 1.0 | Cat == 7.0 | Cat == 8.0'))
+femaleprecancercount = len(fgenderdf.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0'))
+femalecancercount = len(fgenderdf.query('Cat == 5.0 | Cat == 6.0'))
 
 print('\033[1m' + "Female: " + '\033[0m' + "counts and percents\n\tNoncancerous: %d, %4.2f \n\tPrecancerous: %d, %4.2f \n\tCancerous: %d, %4.2f \n\tPrecancer and Cancerous: %d, %4.2f \n" % 
     (femalenoncancercount, femalenoncancercount/fcount, #noncancer

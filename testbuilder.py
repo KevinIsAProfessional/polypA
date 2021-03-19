@@ -37,7 +37,7 @@ def buildpatient(date, t):
             'Sex' : sex,
             'Chart' : '00001',
             'Date' : date,
-            'Cat' : cat,
+            'Cat.' : cat,
             'Reason' : reason
             }
 
@@ -69,7 +69,7 @@ def main():
     start_date = datetime.date.today()
 
     with open('test_patients.csv', 'w', newline='') as csvfile:
-        fieldnames = ['Name','Sex','Chart','Date','Cat','Reason']
+        fieldnames = ['Name','Sex','Chart','Date','Cat.','Reason']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
