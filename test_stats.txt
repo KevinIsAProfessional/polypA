@@ -1,0 +1,4 @@
+Number of patients: 1258
+ Number of Male/Female: 609/649
+ Number of normal/precancerous/cancerous: 426/409/423
+Number of screening/family history/personal history: 300/315/643
