@@ -1,0 +1,9 @@
+- datagathering.py: precancer numbers are 2,3,4. cancer numbers are 5,6. In the testbuilder, there are only 1,2 and 3.
+
+-testbuilder.py and friends: 'Cat.' is a bad name. change to 'Cat' or to 'Reason'
+
+-testbuilder.py: Name dictionary? It's frivolous but fun.
+
+-datagathering.py and testbuilder: incompatible columns/ col names.
+
+-datagathering.py: maybe just start the whole thing over, honestly
