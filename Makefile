@@ -1,15 +1,13 @@
 
 .PHONY: runtest
-runtest: test_patients.csv test_stats.csv	
-	python3 ../datagathering.py test_patients.csv
-	cat test_stats.txt
-
-test_patients.csv:
+runtest: 
 	python3 testbuilder.py
+	python3 get_data.py test_patients.csv
+	python3 check_stats.py data_stats.csv test_stats.csv
 
 .PHONY: clean
 clean:
-	rm test_patients.csv test_stats.csv
+	rm test_patients.csv test_stats.csv data_stats.csv
 
 
 	
