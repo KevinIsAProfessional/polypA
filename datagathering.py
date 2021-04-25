@@ -7,10 +7,14 @@ df = pd.read_csv(sys.argv[1], header=0)
 totalcount = len(df.index)
 mcount = df.query('Sex == "M"')['Reason'].count()
 fcount = df.query('Sex == "F"')['Reason'].count()
-noncancercount = len(df.query('Cat == 1.0').index)
-precancercount = len(df.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0').index)
-cancercount = len(df.query('Cat == 5.0 | Cat == 6.0').index)
 
+#noncancercount = len(df.query('Cat == 1.0').index)
+#precancercount = len(df.query('Cat == 2.0 | Cat == 3.0 | Cat == 4.0').index)
+#cancercount = len(df.query('Cat == 5.0 | Cat == 6.0').index)
+
+noncancercount = len(df.query('Cat == 1.0').index)
+precancercount = len(df.query('Cat == 2.0').index)
+cancercount = len(df.query('Cat == 3.0').index)
 ############################################################
 # Reason for getting screened, by gender
 ############################################################
