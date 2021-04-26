@@ -1,5 +1,5 @@
-# polypA - A number crunching program for cancer screening records
-A polyp is an abnormal growth in the colon (and various other places in the body). Adenomatous polyps are pre-cancerous, and are the main target of colon cancer screenings
+# polypA - number crunching program for cancer screening records
+____A polyp is an abnormal growth in the colon (and various other places in the body). Adenomatous polyps are pre-cancerous, and are the main target of colon cancer screenings_
 
 ## About
 This project was started to help organize and parse nearly 20 years of recorded results from colon cancer screenings from my home state of Alaska.
