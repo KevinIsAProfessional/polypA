@@ -1,11 +1,5 @@
-
-
-
-
 .PHONY: all
 all: runtest
-	@echo "Cleaning up"
-	@rm test_patients.csv test_stats.csv data_stats.csv
 
 .PHONY: runtest
 runtest: 
@@ -16,6 +10,8 @@ runtest:
 	@echo "Comparing output to test_stats"
 	@python3 check_stats.py data_stats.csv test_stats.csv
 	@echo "Test complete. If you don't see anything, then the test was successful"
+	@echo "Cleaning up"
+	@rm test_patients.csv test_stats.csv data_stats.csv
 
 .PHONY: clean
 clean:
