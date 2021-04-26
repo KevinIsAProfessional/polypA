@@ -12,7 +12,7 @@ runtest:
 	@echo "Building test files"
 	@python3 testbuilder.py
 	@echo "Running data analysis on test file"
-	@python3 get_data.py test_patients.csv
+	@python3 get_stats.py test_patients.csv
 	@echo "Comparing output to test_stats"
 	@python3 check_stats.py data_stats.csv test_stats.csv
 	@echo "Test complete. If you don't see anything, then the test was successful"
