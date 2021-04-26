@@ -13,6 +13,8 @@ Analyze a file \(outputs results in data\_stats.csv\):
 python3 get_stats.py your_data_file.csv
 ```
 
+A demonstration file has been added, named example\_patients.csv. Running get\_stats.py will output a file named example\_stats.csv.
+
 To run the test suite:
 ```
 make runtest
