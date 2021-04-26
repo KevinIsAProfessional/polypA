@@ -7,7 +7,7 @@ It will (hopefully) be useful in determining trends in cancer rates over time, a
 
 The program takes a .csv file of data and returns a .csv file of analysis. 
 
-# Using
+### Using
 Analyze a file \(outputs results in data\_stats.csv\):
 ```
 python3 get_stats.py your_data_file.csv
@@ -18,15 +18,15 @@ To run the test suite:
 make runtest
 ```
 
-# Requirements 
+### Requirements 
 Python pandas is used in get\_stats.py.
 
-# Coming Soon
+### Coming Soon
 - Add functionality to produce graphs from data\_stats.csv.
 - Add tools to clean up incoming data files more easily.
 - Update testing framework to be more specific, provide more user feedback.
 - Update get\_stats.py to allow user to specify output file name.
 - Add function to compare the results of two or more datasets
 
-# Author~~s~~
+### Author~~s~~
 - Kevin Christensen
